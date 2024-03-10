@@ -1,0 +1,33 @@
+{% extends 'Navbar/employnavbar.html' %}
+{% load static %}
+<html lang="en" xmlns:employermodule="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Leave Management System</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        {% for leave_details in leave_details_list %}
+        <div class="col-md mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Leave Request</h5>
+                    <p class="card-text">Employee_Name: {{ leave_details.employee_name }}</p>
+                    <p class="card-text">Leave Type: {{ leave_details.leave_type }}</p>
+                    <p class="card-text">Start Date: {{ leave_details.start_date }}</p>
+                    <p class="card-text">End Date: {{ leave_details.end_date }}</p>
+                    <p class="card-text">Reason: {{ leave_details.reason }}</p>
+
+                    <a href="{% url 'edit_leave_details' leave_details.id %}" class="btn btn-success">Edit</a>
+                    <a href="{% url 'delete_leave_details' leave_details.id %}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

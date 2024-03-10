@@ -1,0 +1,49 @@
+{% extends 'Navbar/employnavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block body %}
+
+<h1>This is leave apply page for employ</h1>
+<div class="container mt-5">
+    <h3>Leave details form</h3>
+    <form method="post" action="{% url 'add_leave_details' %}">
+
+        {% csrf_token %}<!-- This will help to load the form -->
+        <div class="form-group">
+            <label for="employname">Employee Name</label>
+            <input type="text" class="form-control" name="employename" id="employname" placeholder="Please enter your name">
+        </div>
+        <div class="form-group">
+            <label for="leave_type">Leave Type</label>
+            <select class="form-control" name="leave_type" id="leave_type">
+                <option value="Sick Leave">Sick Leave</option>
+                <option value="Vacation Leave">Vacation Leave</option>
+                <option value="Personal Leave">Personal Leave</option>
+            </select>
+            <!-- Use select tag for dropdown box -->
+        </div>
+        <div class="form-group">
+            <label for="start_date">Start Date</label>
+            <input type="date" class="form-control" name="start_date" id="start_date">
+        </div>
+        <div class="form-group">
+            <label for="end_date">End Date</label>
+            <input type="date" class="form-control" name="end_date" id="end_date">
+        </div>
+        <div class="form-group">
+            <label for="reason">Reason</label>
+            <textarea class="form-control" name="reason" id="reason" rows="2" placeholder="Enter the reason for leave"></textarea>
+        </div>
+        <!-- Close the form tag -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+{% endblock %}
+</body>
+</html>

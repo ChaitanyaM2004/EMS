@@ -1,0 +1,36 @@
+{% extends 'Navbar/projectnavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Home Page</title>
+    
+</head>
+<body>
+
+{% block body %}
+<div>
+    <br><br>
+    <center>
+        <h1>
+        Employe management system
+    </h1>
+    <br>
+    <div style="display: inline-block; width: 150px;">
+        <button class="nav-link btn" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 0.5rem 1rem; text-decoration: none; width: 100%;">
+            <a href="{% url 'login1' %}" style="color: inherit; text-decoration: none;">Hr</a>
+        </button>
+    </div>
+    
+    <div style="display: inline-block; width: 150px;">
+        <button class="nav-link btn" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 0.5rem 1rem; text-decoration: none; width: 100%;">
+            <a href="{% url 'login1' %}" style="color: inherit; text-decoration: none;">Employee</a>
+        </button>
+    </div>
+    
+    </center>
+</div>
+{% endblock %}
+
+</body>
+</html>

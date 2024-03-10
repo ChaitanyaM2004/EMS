@@ -1,0 +1,41 @@
+{% extends 'Navbar/hrnavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <h2>Leave Details list</h2>
+    <div class="row">
+        {% for leave_details in leave_details_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ leave_details.employee_name }}</h5>
+                        <p class="card-text">
+                            <strong>Leave Type:</strong> 
+                            {{ leave_details.leave_type }}<br>
+                            <strong>Start Date:</strong> {{ leave_details.start_date }}<br>
+                            <strong>End Date:</strong> {{ leave_details.end_date }}<br>
+                            <strong>Reason:</strong> {{ leave_details.reason }}<br>
+                        </p>
+                        <div class="btn-group" role="group">
+                            {% comment %} <a href="#" class="btn btn-success mr-3" style="background-color: blue; color: white;">View Leave Details</a> {% endcomment %}
+                            <a href="#" class="btn btn-success mr-3" style="background-color: green; color: white;">Grant Leave</a>
+                            <a href="#" class="btn btn-success" style="background-color: red; color: white;">Reject Leave</a>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
